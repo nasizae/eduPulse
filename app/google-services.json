@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44057413719",
+    "project_id": "edupulse2",
+    "storage_bucket": "edupulse2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44057413719:android:23a71e4a9be2d0b14f3b12",
+        "android_client_info": {
+          "package_name": "com.example.edupulse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67Nc8g0fUuJeMlB9VWUCr2ZtZLkk6KN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
