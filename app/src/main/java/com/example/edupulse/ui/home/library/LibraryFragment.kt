@@ -1,26 +1,29 @@
-package com.example.edupulse.ui.chat
+package com.example.edupulse.ui.home.library
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.edupulse.R
-import com.example.edupulse.databinding.FragmentChatBinding
+import com.example.edupulse.databinding.FragmentLibraryBinding
+import com.example.edupulse.ui.home.library.adapter.LibraryAdapter
 
-class ChatFragment : Fragment() {
-
-    private lateinit var binding:FragmentChatBinding
+class LibraryFragment : Fragment() {
+    private lateinit var binding:FragmentLibraryBinding
+    private lateinit var adapter: LibraryAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding= FragmentChatBinding.inflate(layoutInflater)
+        binding= FragmentLibraryBinding.inflate(inflater,container,false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        adapter=LibraryAdapter()
+        binding.rvLibrary.adapter=adapter
     }
+
 }

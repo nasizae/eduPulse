@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
+import com.google.firebase.storage.network.UpdateMetadataNetworkRequest
 import java.util.EventListener
 
 class EditProfileFragment : Fragment() {
@@ -51,7 +52,6 @@ class EditProfileFragment : Fragment() {
                     binding.etFullName.setText(value?.fullName)
                     binding.etEmail.setText(value?.email)
                     binding.etPassword.setText(value?.password)
-
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -65,7 +65,22 @@ class EditProfileFragment : Fragment() {
                 val password=binding.etPassword.text.toString()
                 val data=Users(uid,fullName, email, password)
                 myDataBase.child(uid).setValue(data)
-          findNavController().navigateUp()
+                if(auth.currentUser!=null) {
+                    auth.currentUser?.updatePassword(password)?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(requireContext(), "good", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    auth.currentUser?.updateEmail(email)?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(requireContext(), "good email", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             }
         }
     }
