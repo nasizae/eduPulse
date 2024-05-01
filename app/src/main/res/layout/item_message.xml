@@ -17,6 +17,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/container_image"
+                android:layout_width="wrap_content"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_profile"/>
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
@@ -26,8 +42,9 @@
                 android:textColor="@color/baff"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/container_image"
+                app:layout_constraintStart_toEndOf="@id/container_image"
+                app:layout_constraintTop_toTopOf="@id/container_image" />
 
             <TextView
                 android:id="@+id/tv_message"
@@ -38,22 +55,25 @@
                 android:text="Привет"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/rv_date"
+                app:layout_constraintEnd_toStartOf="@id/tv_date"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_username"
-                app:layout_constraintTop_toBottomOf="@id/tv_username" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/container_image" />
 
             <TextView
-                android:id="@+id/rv_date"
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:text="2-10-2002"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_username"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_username" />
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

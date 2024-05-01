@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.edupulse.R
 import com.example.edupulse.databinding.FragmentEditProfileBinding
 import com.example.edupulse.model.Users
@@ -38,6 +39,9 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initEditProfile()
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.navigation_sittings)
+        }
     }
 
     private fun initEditProfile() {
@@ -52,6 +56,7 @@ class EditProfileFragment : Fragment() {
                     binding.etFullName.setText(value?.fullName)
                     binding.etEmail.setText(value?.email)
                     binding.etPassword.setText(value?.password)
+                    Glide.with(binding.imgProfile).load(value?.image).into(binding.imgProfile)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

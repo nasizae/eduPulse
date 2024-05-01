@@ -90,7 +90,8 @@ class ChatFragment : Fragment() {
                     val message = binding.etMessage.text.toString()
                     val date =
                         "${calendar.get(Calendar.HOUR_OF_DAY)}:${calendar.get(Calendar.MINUTE)}"
-                    val userMessageModel = UserMessageModel(userName, message, date)
+                    val imageUser=value?.image.toString()
+                    val userMessageModel = UserMessageModel(userName, message, date,imageUser)
                     myRef.push().setValue(userMessageModel)
                 }
 

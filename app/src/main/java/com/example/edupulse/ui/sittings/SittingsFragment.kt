@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.edupulse.R
 import com.example.edupulse.databinding.FragmentSittingsBinding
 import com.example.edupulse.model.Users
@@ -52,6 +53,8 @@ class SittingsFragment : Fragment() {
                     val value=snapshot.getValue(Users::class.java)
                     binding.tvUsername.text=value?.fullName
                     binding.tvEmail.text=value?.email
+                    Glide.with(binding.imgProfile).load(value?.image).into(binding.imgProfile)
+
                 }
                 override fun onCancelled(error: DatabaseError) {
                 }

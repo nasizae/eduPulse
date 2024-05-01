@@ -73,4 +73,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     //lottie
     implementation ("com.airbnb.android:lottie:6.4.0")
+
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }
